@@ -1,3 +1,72 @@
+/*Exercice 1 : */
+select noserv, service, ville from serv;
+
+/*Exercice 2 : */
+select * from serv;
+
+/*Exercice 3 : */
+select noserv, service from serv;
+
+/*Exercice 4 : */
+select * from emp;
+
+/*Exercice 5 : */
+select emploi from emp;
+
+/*Exercice 6 :*/
+select distinct emploi from emp;
+
+/*Exercice 7 : */
+select * from emp where noserv = 3;
+
+/*Exercice 8 : */
+select noemp, nom, prenom from emp where emploi = "TECHNICIEN";
+
+/*Exercice 9 : */
+select noserv, service from serv where noserv > 2;
+
+/*Exercice 10 : */
+select noserv, service from serv where noserv <= 2;
+
+/*Exercice 11 : */
+select * from emp where comm < sal;
+
+/*Exercice 12 : */
+select * from emp where comm is null;
+
+/* Exercice 13 : */
+select * from emp where comm is not null order by comm;
+
+/* Exercice 14 : */
+select * from emp where sup is not null;
+
+/* Exercice 15 : */
+select * from emp where sup is null;
+
+/*Exercice 16 : */
+select nom, emploi, sal, noserv from emp where noserv = 5 and sal > 20000;
+
+/*Exercice 17 : */
+select * from emp where noserv = 6 and sal >= 9500 and emploi = 'vendeur';
+
+/*Exercice 18 : */
+select * from emp where emploi = 'directeur' or emploi = 'president';
+
+/*Exercice 19 : */
+select nom, emploi, noserv from emp where emploi = 'DIRECTEUR' and noserv != 3;
+
+/* Exercice 20 : */
+select * from emp where emploi = 'Directeur' or emploi = 'Technicien' and noserv = 1;
+
+/* Exercice 21 : */
+select * from emp where (emploi = 'Directeur' or emploi = 'Technicien') and noserv = 1;
+
+/* Exercice 22 : */
+select * from emp where noserv = 1 and ( emploi = 'Directeur' or emploi = 'technicien');
+
+/* Exercice 23 : */
+select * from emp where emploi != 'DIRECTEUR' and emploi != 'TECHNICIEN' and noserv = 1;
+
 /* Exercice 24 */
 select * from emp where emploi in ('TECHNICIEN', 'VENDEUR', 'COMPTABLE');
 
@@ -135,3 +204,6 @@ select emp.noserv, emp.nom, emp.sup, sup.noserv, sup.noemp, sup.nom as nomSup fr
 
 /* Exercice 70 */
 select nom, prenom, emploi, service, sal from emp, serv where noemp in (select sup from emp) and emp.noserv = serv.noserv order by sal desc;
+
+/* Exercice 71 */
+select nom, emploi, convert (format (sal, 0), int(5)) as Revenu from emp;
